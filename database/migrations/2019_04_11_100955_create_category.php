@@ -15,10 +15,11 @@ class CreateCategory extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',255);
-            $table->string('parent_id');
-            $table->string('id');
-            $table->timestamps();
+            $table->string('name',255)->comment("Tên danh mục");
+            $table->bigInteger('parent_id')->comment("Mã id cha")->default(0);
+            $table->string('description',255)->comment("Mô tả danh mục");
+            $table->string('lang',10)->comment("Ngôn ngữ")->default('vi');
+            $table->integer("status")->comment("Trạng thái")->default(0);
         });
     }
 
