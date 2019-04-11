@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([
+   /* 'middleware' => 'auth'*/
+    'prefix' => 'admin'
+], function () {
+
+    Route::resource('category', 'Admin\CategoryController');
+
+
+
+
 });
