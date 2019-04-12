@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\CommonEnum;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,14 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('admin.category.index');
+        $listCategory = $this->repo->findAll();
+        $listParent = [];
+        foreach ($listCategory as $k => $row){
+            if($row->parent_id == CommonEnum::category_parent && $row->status = CommonEnum::active){
+                array_push($listParent,$row);
+            }
+        }
+        return view('admin.category.index',compact('listCategory','listParent'));
     }
 
     /**
@@ -30,8 +38,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        dd($request->all());
         //
     }
 
@@ -44,6 +53,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**
