@@ -10,12 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-include ('auth/auth.php');
 
 Route::group([
-    'middleware' => 'auth',
+   /* 'middleware' => 'auth'*/
     'prefix' => 'admin'
 ], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+
     Route::resource('category', 'Admin\CategoryController');
+
+
+
+
 });
