@@ -9,9 +9,9 @@
                     <div class="input-group">
                         <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
                         <div class="nk-int-st">
-                            <input id="name" type="text"
-                                   class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                   name="name" value="{{ old('name') }}" required autofocus placeholder="Tên đăng nhập">
+                            <input id="username" type="text"
+                                   class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                                   name="username" value="{{ old('username') }}" required autofocus placeholder="Tên đăng nhập">
 
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback" role="alert">

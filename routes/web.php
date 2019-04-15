@@ -16,5 +16,7 @@ Route::group([
     'prefix' => 'admin'
 ], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::resource('category', 'Admin\CategoryController');
+    Route::get('users','UsersController@index');
 });

@@ -43,20 +43,20 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $rules = [
-            'name' => 'required',
+            'username' => 'required',
             'password' => 'required|min:8'
         ];
         $messages = [
-            'name.required' => 'Tên đăng nhập là trường bắt buộc',
+            'username.required' => 'Tên đăng nhập là trường bắt buộc',
             'password.required' => 'Mật khẩu là trường bắt buộc',
             'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
         ];
         $request->validate($rules, $messages);
 
-        $name = $request->input('name');
+        $username = $request->input('username');
         $password = $request->input('password');
-        if (Auth::attempt(['name' => $name, 'password' => $password])) {
-            return redirect()->intended('/');
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            return redirect()->intended('/admin');
         } else {
             $errors = new MessageBag(['errorlogin' => 'Tên đăng nhâp hoặc mật khẩu không đúng']);
             return redirect()->back()->withInput()->withErrors($errors);
