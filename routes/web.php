@@ -10,13 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::group([
-   /* 'middleware' => 'auth'*/
+    'middleware' => 'auth',
     'prefix' => 'admin'
 ], function () {
-
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::resource('category', 'Admin\CategoryController');
+    Route::get('users','UsersController@index');
     Route::group([
         /* 'middleware' => 'auth'*/
         'prefix' => 'media'
