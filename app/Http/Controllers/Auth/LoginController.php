@@ -62,4 +62,9 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->withErrors($errors);
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+    }
 }

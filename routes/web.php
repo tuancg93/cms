@@ -10,8 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-include ('auth/auth.php');
-
+Auth::routes();
 Route::group([
     'middleware' => 'auth',
     'prefix' => 'admin'
