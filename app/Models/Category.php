@@ -8,10 +8,11 @@
 namespace App\Models;
 
 use App\Models\BaseModel as Eloquent;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Category
- * 
+ *
  * @property int $id
  * @property int $id_parent
  * @property string $category_name
@@ -20,18 +21,12 @@ use App\Models\BaseModel as Eloquent;
  */
 class Category extends Eloquent
 {
-	public $timestamps = false;
+    use SoftDeletes;
+    public $timestamps = true;
 
-	protected $casts = [
-		'id_parent' => 'int'
-	];
-    public function group()
-    {
-        return $this->hasMany('App\Models\CategoriesPackage');
-    }
+    protected $table = 'categories';
 
-	protected $fillable = [
-		'id_parent',
-		'category_name'
-	];
+    protected $fillable = [
+        'name', 'parent_id', 'description', 'status', 'lang', 'image'
+    ];
 }

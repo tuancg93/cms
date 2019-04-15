@@ -21,6 +21,7 @@
     <!-- owl.carousel CSS
 		============================================ -->
     <link rel="stylesheet" href="css/chosen/chosen.css">
+    <link rel="stylesheet" href="css/wave/button.css">
     <!-- meanmenu CSS
 		============================================ -->
     <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
@@ -50,7 +51,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <link rel="stylesheet" href="{{url('/admin/parsley')}}/parsley.css">
-
+    <link rel="stylesheet" href="css/dropzone/dropzone.css">
 
 
     <!-- modernizr JS
@@ -58,8 +59,9 @@
 </head>
 
 <body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+
+
+
 <![endif]-->
 <!-- Start Header Top Area -->
 {{--<div class="header-top-area">
@@ -623,6 +625,14 @@
 <div class="data-table-area">
     <div class="container">
         <div class="row">
+            @include('admin.common.flash')
+
+        </div>
+    </div>
+</div>
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="row">
                     @include('admin.category.add')
@@ -636,6 +646,7 @@
         </div>
     </div>
 </div>
+
 <!-- Data Table area End-->
 <!-- Start Footer area-->
 {{--<div class="footer-copyright-area">
@@ -668,6 +679,8 @@
 <script src="{{url('/admin/js')}}/icheck/icheck.min.js"></script>
 <script src="{{url('/admin/js')}}/icheck/icheck-active.js"></script>
 <script src="{{url('/admin/js')}}/chosen/chosen.jquery.js"></script>
+<script src="{{url('/admin/js')}}/dropzone/dropzone.js"></script>
+
 <script src="js/plugins.js"></script>
 <!-- main JS
     ============================================ -->
@@ -676,7 +689,20 @@
         width: "100%",
         allow_single_deselect: !0
     });
+
+    $('.openMediaModal').on('click',function(){
+        var dataURL = $(this).attr('data-href');
+
+        $('.modal-content').load(dataURL,function(){
+            $('#modalUploadMedia').modal({show:true});
+        });
+    });
+        $(function () {
+            $('#add-category').parsley();
+        });
+
+
 </script>
-    </body>
+</body>
 
 </html>

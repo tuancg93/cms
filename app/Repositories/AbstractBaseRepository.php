@@ -278,7 +278,7 @@ abstract class AbstractBaseRepository implements RepositoryInterface
      */
     public function updateManyBy($key, $value, array $data = [])
     {
-        if (is_array($data) || empty($data)) {
+        if (!is_array($data) || empty($data)) {
             throw new RepositoryException;
         }
         return $this->model
