@@ -36,9 +36,11 @@
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('/public/admin')}}/css/animate.css")>
+
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('/public/admin')}}/css/normalize.css")>
+    <link rel="stylesheet" href="{{url('/public/admin')}}/css/notification/notification.css")>
     <!-- mCustomScrollbar CSS
 		============================================ -->
     <link rel="stylesheet" href="{{url('/public/admin')}}/css/scrollbar/jquery.mCustomScrollbar.min.css")>
@@ -337,8 +339,6 @@
     </main>
 </div>
 <script src="{{url('/public/admin')}}/js/vendor/jquery-1.12.4.min.js")></script>
-<script src="{{url('/public/admin')}}/js/vendor/jquery-1.12.4.min.js")></script>
-
 <script src="{{url('/public/admin')}}/js/bootstrap.min.js")></script>
 <script src="{{url('/public/admin')}}/js/wow.min.js")></script>
 <script src="{{url('/public/admin')}}/js/jquery-price-slider.js")></script>
@@ -353,6 +353,9 @@
 <script src="{{url('/public/admin')}}/js/main.js")></script>
 <script src="{{url('/public/admin/js')}}/dropzone/dropzone.js"></script>
 
+
+<script src="{{url('/public/admin/js')}}/notification/bootstrap-growl.min.js"></script>
+<script src="{{url('/public/admin/js')}}/notification/notification-active.js"></script>
 @yield('js')
 </body>
 </html>

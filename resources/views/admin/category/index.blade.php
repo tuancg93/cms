@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('content')
 <div class="data-table-area">
     <div class="container">
         <div class="row">
@@ -22,7 +23,7 @@
         </div>
     </div>
 </div>
-
+@endsection
 @section('js')
     <script>
         $(".chosen")[0] && $(".chosen").chosen({

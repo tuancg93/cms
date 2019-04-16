@@ -98,8 +98,7 @@
             url: "{{route('image.create')}}",
             thumbnail: function(file, dataUrl) {
                 console.log(file)
-                if (file.previewElement) {
-
+                if (file.previewElement ) {
                     file.previewElement.classList.remove("dz-file-preview");
                     var images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
 
@@ -115,11 +114,16 @@
                         thumbnailElement.src = dataUrl;
                         $(thumbnailElement).addClass("img-select-thumb");
                     }
-                    setTimeout(function() { file.previewElement.classList.add("dz-image-preview"); }, 1);
+                    setTimeout(function() {
+                        console.log(file.status )
+                        if(file.status !== 'error'){
+                            file.previewElement.classList.add("dz-image-preview");
+                        }
+                         }, 1);
                 }
             },
             success: function (file, response) {
-                console.log(file, response);
+                console.log("fapfap")
                 dataUrl = '{{url('/images')}}/' + response.resized_name+"?id="+response.id;
                 total_images = total_images +1;
                 var img = '<li><input type="radio" name="image-media" data-img="'+dataUrl+'" checked id="images_select'+ total_images +'" />' +
@@ -128,6 +132,9 @@
                 $(".list-file-media ul").prepend(img);
                 $("#btn-insert-media").removeAttr("disabled");
 
+            },
+            error: function(file, message) {
+                alert('Có lỗi xảy ra ' + message.message)
             }
         });
         
