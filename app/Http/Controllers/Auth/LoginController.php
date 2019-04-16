@@ -55,12 +55,18 @@ class LoginController extends Controller
 
         $username = $request->input('username');
         $password = $request->input('password');
+
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
             return redirect()->intended('/admin');
         } else {
-            $errors = new MessageBag(['errorlogin' => 'Tên đăng nhâp hoặc mật khẩu không đúng']);
+            $errors = ['errorlogin' => trans('login.wrong_login')];
             return redirect()->back()->withInput()->withErrors($errors);
         }
+    }
+
+    public function showLoginForm()
+    {
+        return view('admin.auth.login');
     }
 
     public function logout()

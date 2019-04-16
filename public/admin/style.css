@@ -5874,3 +5874,28 @@ body.box-layout {
 .table.table-inbox > tbody > tr > td .action:hover a:hover{
     color: #21bcd2;
 }
+.error {
+    font-size: 12px;
+    list-style: none;
+    font-weight: normal;
+    color: #ea553d;
+    margin-top: 5px;
+}
+
+.parsley-error {
+    border-color: #ff0000;}
+
+.parsley-errors-list {
+    display: none;
+    margin: 0;
+    padding: 0; }
+
+.parsley-errors-list.filled {
+    display: block; }
+
+.parsley-errors-list > li {
+    font-size: 12px;
+    list-style: none;
+    color: #ea553d;
+    margin-top: 5px;
+}
