@@ -18,14 +18,7 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::resource('category', 'Admin\CategoryController');
-
-    Route::group([
-        'prefix' => 'user'
-    ],function(){
-        Route::get('/','Admin\UserController@index')->name('user.index');
-        Route::get('/create','Admin\UserController@create')->name('user.create');
-    });
-
+    Route::get('users','Admin\UsersController@index');
     Route::group([
         /* 'middleware' => 'auth'*/
         'prefix' => 'media'

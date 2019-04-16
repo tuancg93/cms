@@ -57,7 +57,7 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin/user');
         } else {
             $errors = ['errorlogin' => trans('login.wrong_login')];
             return redirect()->back()->withInput()->withErrors($errors);

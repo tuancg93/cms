@@ -433,7 +433,10 @@ body {
 .header-top-menu .nav.notika-top-nav li .message-dd.chat-dd {
     left: -250px;
 }
-
+.header-top-menu .nav.notika-top-nav li .profile-dd.profile-dd{
+    left: -50px;
+    top: 50px;
+}
 .hd-message-img img {
     border-radius: 50%;
 }
@@ -5898,4 +5901,18 @@ body.box-layout {
     list-style: none;
     color: #ea553d;
     margin-top: 5px;
+}
+
+.data-table-list .btn-add-new{
+    float: right;
+    margin-bottom: 15px;
+}
+
+.profile-info-menu li{
+    margin: 10px;
+    text-align: center;
+}
+
+.profile-info-menu li a{
+    font-size: 14px !important;
 }
