@@ -37,8 +37,8 @@
 
 
                     @foreach($photos as $k => $img)
-                        <li><input name="image-media" data-img="{{url('/images')}}/{{$img->resized_name}}?id={{$img->id}}" type="radio" id="images_select{{$k}}" />
-                            <label for="images_select{{$k}}"><img src="{{url('/images')}}/{{$img->resized_name}}" /></label>
+                        <li><input name="image-media" data-img="{{image_url($img->resized_name,$img->id)}}" type="radio" id="images_select{{$k}}" />
+                            <label for="images_select{{$k}}"><img src="{{image_url($img->resized_name)}}" /></label>
                         </li>
                         @endforeach
                     <input type="hidden" id="total_images" value="{{count($photos)}}">
