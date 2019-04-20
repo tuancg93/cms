@@ -82,6 +82,7 @@
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-support"></i></span></a>
                             <div role="menu" class="dropdown-menu profile-dd animated zoomIn">
                                 <ul class="profile-info-menu">
+                                    <li><a href="{{route('user.profileHtml',['id'=> Auth::user()->id])}}"><i class="fa fa-info-circle"></i> Tài khoản</a></li>
                                     <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                                 </ul>
                             </div>
@@ -125,9 +126,30 @@
                     <div id="User" class="tab-pane in active notika-tab-menu-bg animated flipInX">
                         <ul class="notika-main-menu-dropdown">
                             <li><a href="{{route('user.index')}}">Danh sách tài khooản</a></li>
-                            <li><a href="{{route('user.create')}}">Tạo mới tài khooản</a></li>
-                            </li>
+                            <li><a href="{{route('user.addHtml')}}">Tạo mới tài khooản</a></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    @yield('header-icon')
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    @yield('header-element')
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

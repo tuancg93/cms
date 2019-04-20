@@ -21,9 +21,15 @@ Route::group([
 
     Route::group([
         'prefix' => 'user'
-    ],function(){
-        Route::get('/','Admin\UserController@index')->name('user.index');
-        Route::get('/create','Admin\UserController@create')->name('user.create');
+    ], function () {
+        Route::get('/', 'Admin\UserController@index')->name('user.index');
+        Route::get('/add', 'Admin\UserController@addHtml')->name('user.addHtml');
+        Route::post('/addAction', 'Admin\UserController@addAction')->name('user.addAction');
+        Route::get('/edit/{id}', 'Admin\UserController@editHtml')->name('user.editHtml');
+        Route::post('/editAction/{id}', 'Admin\UserController@editAction')->name('user.editAction');
+        Route::get('/view/{id}', 'Admin\UserController@view')->name('user.view');
+        Route::get('/profile/{id}', 'Admin\UserController@profileHtml')->name('user.profileHtml');
+        Route::get('/delete', 'Admin\UserController@delete')->name('user.delete');
     });
 
     Route::group([
@@ -39,7 +45,6 @@ Route::group([
 
 
     });
-
 
 
 });
