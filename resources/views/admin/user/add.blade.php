@@ -191,7 +191,7 @@
                                     <button class="btn btn-success notika-btn-success waves-effect" type="submit">
                                         Tạo mới
                                     </button>
-                                    <button class="btn btn-warning btn-reset" type="button">
+                                    <button class="btn btn-warning notika-btn-warning btn-reset waves-effect" type="button">
                                         Nhập lại
                                     </button>
                                 </div>

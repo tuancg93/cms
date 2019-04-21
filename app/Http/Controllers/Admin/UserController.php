@@ -73,6 +73,7 @@ class UserController extends Controller
      */
     public function editHtml($id)
     {
+        $this->authorize('edit-user');
         $data = $this->res->findOneById($id);
         return view('admin.user.edit', compact('data'));
     }
